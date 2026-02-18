@@ -1,0 +1,59 @@
+/* This for whole Page background */
+body{
+    font-family: Arial, sans-serif;
+    background-color:#e3e8ed;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0;
+}
+
+/* Profile Card */
+.card{
+    background:#FAEBD7;
+    width:300px;
+    padding:30px;                /* Padding is form (Box model) */
+    border:2px solid #0b0b0b;   /* colour Border a */
+    border-radius:15px;          /* it Rounded the corners */
+    margin:20px;                 /* this is for Margin from page edges */
+    text-align:center;            /* this for Text alignment */
+}
+
+/* this is for Name*/
+.card h1{
+    color: crimson;
+    margin-bottom:5px;
+    letter-spacing:1px;
+}
+
+/* for Role */
+.card h3{
+    color:#CD5C5C;
+    font-weight:normal;
+    margin-top:0;
+}
+
+/* for Bio */
+.card p{
+    line-height:1.6;
+    color:#555;
+    font-size:15px;
+}
+
+/* for Button */
+button{
+    background:#800000;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:25px;
+    font-size:16px;
+    cursor:pointer;
+    margin-top:15px;
+}
+
+/* Hover effect means while placing cursor it shows like highlight */
+button:hover{
+    background:#2c80b4;
+}

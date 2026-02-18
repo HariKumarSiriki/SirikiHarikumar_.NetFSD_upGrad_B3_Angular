@@ -1,0 +1,37 @@
+
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6f8;
+    margin:0;
+    padding:40px;
+}
+
+/* i used  Section heading  + class selector) */
+.features h2{
+    text-align:center;
+    color:#2c3e50;
+}
+
+/* this for  Unordered list styling */
+.features ul{
+    padding:0;
+    max-width:400px;
+    margin:20px auto;
+}
+
+/* This for Feature items so i used (descendant selector) */
+.features ul li{
+    background:#d10808;
+    color:white;
+    padding:20px;
+    margin:10px 0;
+    border-radius:8px;
+    border:2px solid #1c1c1d;
+    font-size:18px;
+    letter-spacing:1px;
+}
+
+/* this for Hover effect using Pseudo-class selector */
+.features ul li:hover{
+    background:#2c80b4; 
+}

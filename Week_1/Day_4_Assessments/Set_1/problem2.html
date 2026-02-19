@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Grade Evaluator</title>
+</head>
+<body>
+
+    <h2>Welcome to the Student Grade Evaluator</h2>
+    <hr><br>
+
+    <script>
+        let marks = 90;
+
+        if (marks >= 75) {
+            console.log("Secured Grade A");
+            document.body.innerHTML += "<strong>Marks:</strong> " + marks + "<br><strong>Secured Grade A</strong>";
+        }
+        else if (marks >= 60) {
+            console.log("Secured Grade B");
+            document.body.innerHTML += "<strong>Marks:</strong> " + marks + "<br><strong>Secured Grade B</strong>";
+        }
+        else if (marks >= 40) {
+            console.log("Secured Grade C");
+            document.body.innerHTML += "<strong>Marks:</strong> " + marks + "<br><strong>Secured Grade C</strong>";
+        }
+        else {
+            console.log("Failed");
+            document.body.innerHTML += "<strong>Marks:</strong> " + marks + "<br><strong>Failed</strong>";
+        }
+    </script>
+
+</body>
+</html>

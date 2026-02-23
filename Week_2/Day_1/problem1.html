@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notes Saver</title>
+</head>
+<body>
+
+    <h2> MY Daily Notes</h2>
+    <hr><hr><br>
+
+    <textarea id="noteBox" rows="8" cols="40" placeholder="Enter text"></textarea>
+    <br><br>
+
+    <button onclick="saveNote()">Save text</button>
+    <button onclick="clearNote()">Clear text</button>
+
+    <p id="status"></p>
+
+<script>
+
+    // this runs when page fully loads
+    window.onload = function() {
+        let data = localStorage.getItem("note");
+
+        if(data != null) {
+            document.getElementById("noteBox").value = data;
+        }
+    }
+
+    // This is save button function
+    function saveNote() {
+        let text = document.getElementById("noteBox").value;
+        localStorage.setItem("note", text); //permanent storage until we clear
+        document.getElementById("status").innerHTML = "Note saved";
+    }
+
+    //this is  clear button function
+    function clearNote() {
+        localStorage.removeItem("note");
+        document.getElementById("noteBox").value = "";
+        document.getElementById("status").innerHTML = "Note cleared";
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+</head>
+
+<body>
+
+<h1>Locations Demo</h1>
+<hr>
+
+<button onclick="getLocation()">Get My Location</button>
+<hr><hr><br>
+<p id="p1"></p>
+
+<h3>Last 5 Locations</h3>
+<ul id="list"></ul>
+
+<script>
+
+// this onload shows old locations when page loads
+window.onload = function() {
+    showHistory();
+}
+
+// this is the button to getlocations 
+function getLocation()
+{
+    navigator.geolocation.getCurrentPosition(showPosition, showError);
+}
+
+// success callback
+function showPosition(args)
+{
+    var lat = args.coords.latitude;
+    var lon = args.coords.longitude;
+
+    var str = "Latitude : " + lat;
+    str += "<br>";
+    str += "Longitude : " + lon;
+
+    document.getElementById("p1").innerHTML = str;
+
+    saveLocation(lat, lon);
+}
+
+// this error callback if locations not available
+function showError(error)
+{
+    document.getElementById("p1").innerHTML = "Location are not available";
+}
+
+// save all locations in localStorage which is permanent until we clear
+function saveLocation(lat, lon)
+{
+    var data = localStorage.getItem("locations");
+
+    if(data == null)
+        data = [];
+    else
+        data = JSON.parse(data); // converts string to obj
+
+    data.push({latitude: lat, longitude: lon});
+
+    // it keep only last 5 locations
+    if(data.length > 5)
+        data.shift();
+
+    localStorage.setItem("locations", JSON.stringify(data)); // this JSON.Stringfy  convert obj to string
+
+    showHistory();
+}
+
+// this displays the  history of locations
+function showHistory()
+{
+    var data = localStorage.getItem("locations");
+    if(data == null) return;
+
+    data = JSON.parse(data);
+
+    var list = document.getElementById("list");
+    list.innerHTML = "";
+
+    for(var i=0; i<data.length; i++)
+    {
+        var li = document.createElement("li");
+        li.innerHTML = data[i].latitude + " , " + data[i].longitude;
+        list.appendChild(li);
+    }
+}
+
+</script>
+
+</body>
+</html>

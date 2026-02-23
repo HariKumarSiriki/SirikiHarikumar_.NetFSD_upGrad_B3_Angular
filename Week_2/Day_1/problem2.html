@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Form</title>
+</head>
+<body>
+
+<h2>Register</h2>
+<hr><hr><br>
+
+Name:
+<input type="text" id="name" placeholder="Enter name" onchange="checkName()">
+<p id="msg1"></p>
+
+Email:
+<input type="text" id="email" placeholder="Enter Email"  onchange="checkEmail()">
+<p id="msg2"></p>
+
+Age:
+<input type="number" id="age" placeholder="Enter age" onchange="checkAge()">
+<p id="msg3"></p>
+
+<button onclick="storeData()">Submit</button>
+
+<p id="last"></p>
+
+<script>
+
+    //this is checkName function to check the name is vaild or not
+
+function checkName() {
+    var name = document.getElementById("name").value;
+
+    if(name == "") {
+        document.getElementById("msg1").innerHTML = "Enter name";
+    } else {
+        document.getElementById("msg1").innerHTML = "OK";
+    }
+}
+
+
+// this is checkEmail function to check the Email is vaild or not
+function checkEmail() {
+    var email = document.getElementById("email").value;
+
+    if(email.includes("@")) {
+        document.getElementById("msg2").innerHTML = "OK";
+    } else {
+        document.getElementById("msg2").innerHTML = "Invalid email";
+    }
+}
+
+
+//this checkAge function is used to check the age above 18
+function checkAge() {
+    var age = document.getElementById("age").value;
+
+    if(age > 18) {
+        document.getElementById("msg3").innerHTML = "OK";
+    } else {
+        document.getElementById("msg3").innerHTML = "Must be 18+";
+    }
+}
+
+//this storeData function is used to store the data 
+
+function storeData() {
+
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var age = document.getElementById("age").value;
+
+    if(name != "" && email.includes("@") && age > 18) {
+        sessionStorage.setItem("name", name); // temporary storage it will deleted when the tab closed
+        sessionStorage.setItem("email", email);
+        sessionStorage.setItem("age", age);
+
+        document.getElementById("last").innerHTML = "Data Saved successfully in session storage";
+    } else {
+        document.getElementById("last").innerHTML = "Please Fix errors first";
+    }
+}
+
+</script>
+
+</body>
+</html>

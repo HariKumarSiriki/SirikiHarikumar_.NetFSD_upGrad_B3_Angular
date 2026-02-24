@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>Product Cart Summary </h3>
+<hr>
+
+<script>
+
+
+const products = [
+    { name: "Laptop", price: 50000, quantity: 1 },
+    { name: "Mouse", price: 500, quantity: 2 },
+    { name: "Keyboard", price: 1000, quantity: 1 },
+    { name: "WEB CAM", price: 1700, quantity: 1 }
+];
+
+
+const calculateCart = (items) => {
+
+    let grandTotal = 0;
+
+    console.log("INVOICE BILL");
+
+   
+    items.map(item => {
+
+        let itemTotal = item.price * item.quantity;
+        grandTotal = grandTotal + itemTotal;
+
+        console.log(`${item.name} = ${itemTotal}`);
+    });
+
+
+    console.log(`Total Amount = ${grandTotal}`);
+};
+
+
+calculateCart(products);
+
+</script>
+
+</body>
+</html>

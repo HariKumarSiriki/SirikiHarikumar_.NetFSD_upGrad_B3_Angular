@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Marks Analyzer</title>
+</head>
+<body>
+
+<h2>Welcome to Student Marks Analyzer</h2>
+<button onclick="analyzeMarks()">Show Marks</button>
+
+<p id="output"></p>
+
+<script>
+
+function analyzeMarks()
+{
+   
+    const marks = [75, 60, 80, 50, 45];
+
+    let total=0;
+    marks.map(mark => total = total + mark);
+
+  
+    const average = total / marks.length;
+
+
+    let result;
+    if (average >= 40)
+        result = "PASS";
+    else
+        result = "FAIL";
+
+    
+  document.getElementById("output").innerHTML = `
+
+<strong>STUDENT DETAILS</strong><hr><br>
+
+<strong>Marks:</strong> ${marks} <br>
+<strong>Total Marks:</strong> ${total} <br>
+<strong>Average Marks:</strong> ${average.toFixed(2)} <br>
+<strong>Result:</strong> ${result}
+
+`};
+
+</script>
+
+</body>
+</html>

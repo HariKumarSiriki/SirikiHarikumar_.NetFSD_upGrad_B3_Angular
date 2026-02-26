@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Class</title>
+</head>
+<body>
+<h1 align="center"> All Student Details</h1>
+<hr>
+<div id="result"></div>
+
+<script>
+let box = document.getElementById("result");
+
+class Student {
+  constructor(name, rollNumber, marks){
+    this.name = name;
+    this.rollNumber = rollNumber;
+    this.marks = marks;
+  }
+  
+
+  getDetails(){
+    return `<Strong>Name:</Strong> ${this.name} | <Strong>Roll No:</Strong> ${this.rollNumber} | <Strong>Marks:</Strong> ${this.marks}`;
+  }
+
+  getGrade(){
+    if(this.marks >= 90){
+        return "A";
+    } 
+    else if(this.marks >= 75)
+    {
+        return "B";
+
+    } 
+    else if(this.marks >= 50) {return "C";}
+
+    else {
+        return "Fail";
+    }
+  }
+}
+let s1 = new Student("Hari",101,92);
+let s2 = new Student("Ravi",102,68);
+
+
+
+box.innerHTML += s1.getDetails() + "<Strong> <br>Grade:</Strong> " + s1.getGrade() + "<br><br>";
+box.innerHTML += s2.getDetails() + "<Strong> <br>Grade</Strong>: " + s2.getGrade();
+</script>
+</body>
+</html>

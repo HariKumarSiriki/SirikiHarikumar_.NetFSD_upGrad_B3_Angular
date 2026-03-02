@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>FAQ</title>
+
+<style>
+#a1,#a2,#a3,#a4,#a5{
+    color:blue;
+}
+</style>
+</head>
+
+<body>
+
+     <script  src="https://code.jquery.com/jquery-4.0.0.js">		
+	</script>
+<h2>FAQ Section</h2>
+<hr><hr>
+<p id="q1">What is jQuery?</p>
+<p id="a1">jQuery is a JavaScript library.</p>
+
+<p id="q2">Why use jQuery?</p>
+<p id="a2">It makes JavaScript easy.</p>
+
+<p id="q3">Is backend required?</p>
+<p id="a3">No backend needed.</p>
+
+<p id="q4">Is jQuery fast?</p>
+<p id="a4">Yes it is fast.</p>
+
+<p id="q5">Is it beginner friendly?</p>
+<p id="a5">Yes very easy.</p>
+
+<script>
+$(document).ready(function(){
+
+$("#a1,#a2,#a3,#a4,#a5").hide();
+
+$("#q1").click(function(){ 
+    $("#a1").slideToggle();
+ });
+$("#q2").click(function(){ 
+    $("#a2").slideToggle(); 
+});
+$("#q3").click(function(){ 
+    $("#a3").slideToggle(); 
+});
+$("#q4").click(function(){ 
+    $("#a4").slideToggle(); 
+});
+$("#q5").click(function(){
+     $("#a5").slideToggle();
+     });
+
+});
+</script>
+
+</body>
+</html>

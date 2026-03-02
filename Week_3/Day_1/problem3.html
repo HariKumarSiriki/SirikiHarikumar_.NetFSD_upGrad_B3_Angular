@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cart Counter</title>
+
+
+<style>
+.product{
+    margin:10px 0;
+}
+.msg{
+    color:green;
+    margin-left:10px;
+}
+</style>
+</head>
+
+<body>
+ <script  src="https://code.jquery.com/jquery-4.0.0.js">		
+	</script>
+<h2>Cart Items : <span id="count">0</span></h2>
+<hr>
+
+<div class="product">
+Laptop <button id="b1">Add to Cart</button> <span id="m1" class="msg"></span>
+</div>
+
+<div class="product">
+Mobile <button id="b2">Add to Cart</button> <span id="m2" class="msg"></span>
+</div>
+
+<div class="product">
+Mouse <button id="b3">Add to Cart</button> <span id="m3" class="msg"></span>
+</div>
+
+<div class="product">
+Keyboard <button id="b4">Add to Cart</button> <span id="m4" class="msg"></span>
+</div>
+
+<script>
+$(document).ready(function(){
+
+let cart = 0;
+
+$("#b1").click(function(){
+    cart++;
+    $("#count").text(cart);
+    $("#m1").text("Added");
+});
+
+$("#b2").click(function(){
+    cart++;
+    $("#count").text(cart);
+    $("#m2").text("Added");
+});
+
+$("#b3").click(function(){
+    cart++;
+    $("#count").text(cart);
+    $("#m3").text("Added");
+});
+
+$("#b4").click(function(){
+    cart++;
+    $("#count").text(cart);
+    $("#m4").text("Added");
+});
+
+});
+</script>
+
+</body>
+</html>

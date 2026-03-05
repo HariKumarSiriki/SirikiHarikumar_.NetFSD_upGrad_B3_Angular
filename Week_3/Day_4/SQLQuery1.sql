@@ -142,7 +142,7 @@ SELECT
             JOIN order_items oi 
             ON o.orderId = oi.orderId
             WHERE o.customerId = c.customerId
-        ),0
+        ),
     ) AS totalOrderValue,
     CASE
         WHEN (

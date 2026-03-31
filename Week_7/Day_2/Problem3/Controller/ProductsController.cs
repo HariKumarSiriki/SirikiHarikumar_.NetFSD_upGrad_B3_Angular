@@ -1,0 +1,50 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace WebApplication2.Controllers
+{
+    [Route("product")]
+    public class ProductsController : Controller
+    {
+        [HttpGet("index")]
+        public IActionResult Index()
+        {
+            ViewBag.Products = new List<string>();
+            return View();
+        }
+
+        [HttpPost("add")]
+        public IActionResult Add(string name, string price, string quantity, string existingData)
+        {
+            List<string> products = new List<string>();
+
+        
+            if (!string.IsNullOrEmpty(existingData))
+            {
+                products = existingData.Split('|').ToList();
+            }
+
+          
+            if (string.IsNullOrWhiteSpace(name) ||
+                string.IsNullOrWhiteSpace(price) ||
+                string.IsNullOrWhiteSpace(quantity))
+            {
+                ViewBag.Error = "All fields are required";
+                ViewBag.Products = products;
+                ViewBag.Hidden = existingData;
+                return View("Index");
+            }
+
+        
+            string newProduct = name + " - " + price + " - " + quantity;
+            products.Add(newProduct);
+
+         
+            ViewBag.Products = products;
+            ViewBag.Hidden = string.Join("|", products);
+
+            return View("Index");
+        }
+    }
+}

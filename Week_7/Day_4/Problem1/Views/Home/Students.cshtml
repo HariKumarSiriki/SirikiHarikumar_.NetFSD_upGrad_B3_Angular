@@ -1,0 +1,57 @@
+﻿@model List<WebApplication3.Models.Student>
+
+<div class="container mt-4">
+
+
+    <div class="card p-4 shadow-sm mb-4">
+        <h4 class="text-primary">Add Student</h4>
+
+        <form method="post">
+            <div class="mb-3">
+                <label class="form-label">Student Name</label>
+                <input type="text" name="StudentName" class="form-control" placeholder="Enter student name" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Select Course</label>
+                <select name="CourseId" class="form-select">
+                    <option value="">-- Select Course --</option>
+                    @foreach (var c in ViewBag.Courses)
+                    {
+                        <option value="@c.CourseId">@c.CourseName</option>
+                    }
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-success">Add Student</button>
+        </form>
+    </div>
+
+
+
+    <div class="card p-4 shadow-sm">
+        <h3 class="mb-3 text-primary">Students List</h3>
+
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Student Id</th>
+                    <th>Student Name</th>
+                    <th>Course</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var s in Model)
+                {
+                    <tr>
+                        <td>@s.StudentId</td>
+                        <td>@s.StudentName</td>
+                        <td>@s.Course?.CourseName</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>

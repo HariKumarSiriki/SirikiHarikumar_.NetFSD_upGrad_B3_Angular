@@ -1,0 +1,47 @@
+﻿@model WebApplication4.Models.ContactInfo
+
+<h2>Add Contact</h2>
+
+<form asp-action="AddContact" method="post">
+
+    <label>First Name</label>
+    <input asp-for="FirstName" class="form-control" />
+
+    <label>Last Name</label>
+    <input asp-for="LastName" class="form-control" />
+
+    <label>Email</label>
+    <input asp-for="EmailId" class="form-control" />
+
+    <label>Mobile</label>
+    <input asp-for="MobileNo" class="form-control" />
+
+    <label>Designation</label>
+    <input asp-for="Designation" class="form-control" />
+
+    <!-- Company Dropdown -->
+    <label>Company</label>
+    <select asp-for="CompanyId" class="form-control">
+        <option value="">Select Company</option>
+        @foreach (var c in ViewBag.Companies)
+        {
+            <option value="@c.CompanyId">@c.CompanyName</option>
+        }
+    </select>
+
+    <!-- Department Dropdown -->
+    <label>Department</label>
+    <select asp-for="DepartmentId" class="form-control">
+        <option value="">Select Department</option>
+        @foreach (var d in ViewBag.Departments)
+        {
+            <option value="@d.DepartmentId">@d.DepartmentName</option>
+        }
+    </select>
+
+    <br />
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+<a asp-action="ShowContacts">Back</a>
